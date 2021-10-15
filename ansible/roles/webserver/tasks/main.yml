@@ -31,5 +31,6 @@
   become: yes
   become_user: root
   systemd:
+    name: firewalld
     state: stopped
     enabled: no
