@@ -10,11 +10,15 @@
 
 - name: Make sure a service unit is running
   systemd:
+  become: yes  
+  become_user: root
     state: started
     name: httpd
 
 - name: Enable service httpd and ensure it is not masked
   systemd:
+  become: yes  
+  become_user: root
     name: httpd
     enabled: yes
     masked: no
