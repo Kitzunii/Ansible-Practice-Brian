@@ -1,24 +1,27 @@
 - debug:
     msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
 
-- name: Install the latest version of Apache
+- 
+  name: Install the latest version of Apache
   become: yes  
   become_user: root
   yum:
     name: httpd
     state: latest
 
-- name: Make sure a service unit is running
-  systemd:
+-
+  name: Make sure a service unit is running
   become: yes  
   become_user: root
+  systemd:
     state: started
     name: httpd
 
-- name: Enable service httpd and ensure it is not masked
-  systemd:
+- 
+  name: Enable service httpd and ensure it is not masked
   become: yes  
   become_user: root
+  systemd:
     name: httpd
     enabled: yes
     masked: no
