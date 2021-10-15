@@ -12,6 +12,8 @@
     msg: Hello World
 
 - name: Install the latest version of Apache
+  become: yes  
+  become_user: root
   yum:
     name: httpd
     state: latest
