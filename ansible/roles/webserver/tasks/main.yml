@@ -6,7 +6,7 @@
     msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
 
 - debug:
-    msg: "Output of our hostname command is: {{ out_hostname_command.stdout }}"
+    msg: "Output of our hostname command is: {{ our_hostname_command.stdout }}"
 
 - debug:
     msg: Hello World
