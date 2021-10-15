@@ -11,9 +11,7 @@
 - debug:
     msg: Hello World
 
-- name: Run command
-  command: sudo yum update 
-  register: yum_update     
-
-- debug: 
-    msg: "Output of our hostname command is: {{ yum_update.stdout }}"     
+- name: Install the latest version of Apache
+  yum:
+    name: httpd
+    state: latest
