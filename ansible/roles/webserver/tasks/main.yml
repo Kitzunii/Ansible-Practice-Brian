@@ -11,4 +11,9 @@
 - debug:
     msg: Hello World
 
-#hi    
+- name: Run command
+    command: sudo yum update 
+    register: yum_update     
+
+- debug: 
+     msg: "Output of our hostname command is: {{ yum_update }}"     
