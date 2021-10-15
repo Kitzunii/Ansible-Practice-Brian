@@ -7,3 +7,14 @@
   yum:
     name: httpd
     state: latest
+
+- name: Make sure a service unit is running
+  systemd:
+    state: started
+    name: httpd
+
+- name: Enable service httpd and ensure it is not masked
+  systemd:
+    name: httpd
+    enabled: yes
+    masked: no
