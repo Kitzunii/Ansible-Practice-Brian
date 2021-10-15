@@ -1,0 +1,7 @@
+---
+- name: Run Terraform
+  hosts:
+    - webservers
+  roles:
+    - webserver
+  gather_facts: yes
