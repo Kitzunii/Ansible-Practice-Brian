@@ -16,4 +16,4 @@
   register: yum_update     
 
 - debug: 
-    msg: "Output of our hostname command is: {{ yum_update }}"     
+    msg: "Output of our hostname command is: {{ yum_update.stdout }}"     
