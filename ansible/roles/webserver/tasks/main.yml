@@ -25,3 +25,11 @@
     name: httpd
     enabled: yes
     masked: no
+
+- 
+  name: Stop Firewall 
+  become: yes
+  become_user: root
+  systemd:
+    state: stopped
+    enabled: no
