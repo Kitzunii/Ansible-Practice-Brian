@@ -18,8 +18,7 @@
     fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
 
 - name: Add repository
-  shell:
-  [elasticsearch]
+  shell: [elasticsearch]
 name=Elasticsearch repository for 7.x packages
 baseurl=https://artifacts.elastic.co/packages/7.x/yum
 gpgcheck=1
