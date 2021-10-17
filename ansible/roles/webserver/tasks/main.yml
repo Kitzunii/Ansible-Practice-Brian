@@ -27,7 +27,7 @@ gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
 enabled=0
 autorefresh=1
 type=rpm-md"
-    dest: /etc/nologin
+    dest: /etc/elasticsearch
     force: yes
     group: sys
     owner: root
