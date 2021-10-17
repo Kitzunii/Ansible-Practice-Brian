@@ -20,6 +20,8 @@
 - name: Add repository
   yum_repository:
     name: Elastic
+    become: true
+    become_user: root
     description: Elastic YUM repo
     baseurl: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.15.1-x86_64.rpm
 
