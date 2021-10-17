@@ -17,5 +17,5 @@
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
 
-- name: Execute the command in remote shell
-  ansible.builtin.shell: sudo yum install --enablerepo=elasticsearch elasticsearch
+- name: Install the latest version of Elastic
+  shell: sudo yum install --enablerepo=elasticsearch elasticsearch
