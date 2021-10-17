@@ -19,18 +19,10 @@
 
 - hosts: all
   tasks:
-  - name: elastichsearch.yml
-    copy:
-      dest: "/etc/elasticsearch/elastic.yml"
-      content:
-        [elasticsearch]
-        name=Elasticsearch repository for 7.x packages
-        baseurl=https://artifacts.elastic.co/packages/7.x/yum
-        gpgcheck=1
-        gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-        enabled=0
-        autorefresh=1
-        type=rpm-md
+  - name: Ansible create file if it doesn't exist example
+    file:
+      path: /etc/elasticsearch/elasticsearch.repo
+      state: touch
 
 - name: Run a command as the root user
   command: sudo yum install --enablerepo=elasticsearch elasticsearch
