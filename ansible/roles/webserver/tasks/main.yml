@@ -1,21 +1,4 @@
 -
-  name: Install the latest version of Apache
-  become: yes
-  become_user: root
-  yum:
-    name: httpd
-    state: latest
-
--
-  name: Make sure a service unit is running
-  become: yes
-  become_user: root
-  systemd:
-    state: started
-    name: httpd
-    enabled: yes
-
--
   name: Stop Firewall
   become: yes
   become_user: root
@@ -23,3 +6,13 @@
     name: firewalld
     state: stopped
     enabled: no
+
+- name: Import a key from a url
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Verify the key, using a fingerprint, before import
+  ansible.builtin.rpm_key:
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
