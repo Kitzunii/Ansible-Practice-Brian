@@ -17,7 +17,7 @@
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
 
-- hosts: all
+-
   tasks:
   - name: Ansible create file if it doesn't exist example
     file:
