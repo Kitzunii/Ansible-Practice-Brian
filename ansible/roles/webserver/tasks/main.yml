@@ -17,21 +17,20 @@
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
 
-- name: elasticsearch.yml
-  copy:
-    content: "[elasticsearch]
-name=Elasticsearch repository for 7.x packages
-baseurl=https://artifacts.elastic.co/packages/7.x/yum
-gpgcheck=1
-gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-enabled=0
-autorefresh=1
-type=rpm-md"
-    dest: /etc/elasticsearch
-    force: yes
-    group: sys
-    owner: root
-    mode: 0555
+- hosts: all
+  tasks:
+  - name: elastichsearch.yml
+    copy:
+      dest: "/etc/elasticsearch/elastic.yml"
+      content:
+        [elasticsearch]
+        name=Elasticsearch repository for 7.x packages
+        baseurl=https://artifacts.elastic.co/packages/7.x/yum
+        gpgcheck=1
+        gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        enabled=0
+        autorefresh=1
+        type=rpm-md
 
 - name: Run a command as the root user
   command: sudo yum install --enablerepo=elasticsearch elasticsearch
