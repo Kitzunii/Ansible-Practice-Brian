@@ -26,6 +26,8 @@
     gpgcheck: yes
     gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     enabled: yes
+  become: true
+  become_user: root
     #autorefresh=1? https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_repository_module.html
     #type=rpm-md?
 
