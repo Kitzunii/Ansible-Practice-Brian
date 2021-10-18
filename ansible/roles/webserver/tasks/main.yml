@@ -42,7 +42,9 @@
 # autorefresh=1
 # type=rpm-md
 
-- name: Run a command as the root user
-  command: sudo yum install --enablerepo=elasticsearch elasticsearch
+- name: Install the latest version of Filebeat
+  yum:
+    name: filebeat
+    state: latest
   become: true
   become_user: root
