@@ -17,11 +17,26 @@
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     fingerprint: EBC6 E12C 62B1 C734 026B  2122 A20E 5214 6B8D 79E6
 
--
-  name: Ansible create file if it doesn't exist example
-  file:
-    path: /etc/elasticsearch/elasticsearch.repo
-    state: touch
+- name: [elastic-7.x]
+  yum_repository:
+    description: Elastic repository for 7.x packages
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    gpgcheck: yes
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+    #autorefresh=1? https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_repository_module.html
+    #type=rpm-md?
+
+
+
+# [elastic-7.x]
+# name=Elastic repository for 7.x packages
+# baseurl=https://artifacts.elastic.co/packages/7.x/yum
+# gpgcheck=1
+# gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+# enabled=1
+# autorefresh=1
+# type=rpm-md
 
 - name: Run a command as the root user
   command: sudo yum install --enablerepo=elasticsearch elasticsearch
