@@ -48,3 +48,9 @@
     state: latest
   become: true
   become_user: root
+
+- name: Starting and Enabling Filebeat
+  systemd:
+    name: filebeat
+    state: started
+    enabled: yes
