@@ -6,6 +6,7 @@
     name: firewalld
     state: stopped
     enabled: no
+  ignore_errors: yes
 
 - name: Import a key from a url
   ansible.builtin.rpm_key:
