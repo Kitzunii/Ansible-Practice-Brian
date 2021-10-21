@@ -54,3 +54,15 @@
     name: filebeat
     state: started
     enabled: yes
+
+- name: Create filbeat.yml
+    file: ansible\roles\webserver\vars\main.yml
+    name: main.yml
+
+- name: Template a file to /etc/file.conf
+  ansible.builtin.template:
+    src: filebeat.yml.j2
+    dest: /etc/filebeat
+    owner: root
+    group: root
+    mode: '0700'
