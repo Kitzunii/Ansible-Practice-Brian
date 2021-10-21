@@ -71,3 +71,8 @@
   command: filebeat modules enable system
   become: true
   become_user: root
+
+- name: Setup Assets
+  command: filebeat setup -e
+  become: true
+  become_user: root
