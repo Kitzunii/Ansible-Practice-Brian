@@ -66,3 +66,8 @@
     enabled: yes
   become: true
   become_user: root
+
+- name: Enable Module
+  command: filebeat modules enable system
+  become: true
+  become_user: root
