@@ -59,14 +59,6 @@
   become: true
   become_user: root
 
-- name: Restart Filbeat
-  systemd:
-    name: filebeat
-    state: restarted
-    enabled: yes
-  become: true
-  become_user: root
-
 - name: Enable Module
   command: filebeat modules enable system
   become: true
@@ -76,3 +68,16 @@
   command: filebeat setup -e
   become: true
   become_user: root
+  run_once: true
+
+- name: Restart Filbeat
+  systemd:
+    name: filebeat
+    state: restarted
+    enabled: yes
+  become: true
+  become_user: root
+
+- name: All Done
+  debug:
+    msg: ALL DONE "http://{{elasticsearch_host}}:5601/app/home#/"
