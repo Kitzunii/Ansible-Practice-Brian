@@ -49,14 +49,6 @@
   become: true
   become_user: root
 
-- name: Starting and Enabling Filebeat
-  systemd:
-    name: filebeat
-    state: started
-    enabled: yes
-  become: true
-  become_user: root
-
 - name: Template a file to /etc/file.conf
   template:
     src: filebeat.yml.j2
@@ -64,5 +56,13 @@
     owner: root
     group: root
     mode: '0600'
+  become: true
+  become_user: root
+
+- name: Restart Filbeat
+  systemd:
+    name: filebeat
+    state: restarted
+    enabled: yes
   become: true
   become_user: root
