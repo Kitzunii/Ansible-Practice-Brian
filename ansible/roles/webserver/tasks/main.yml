@@ -58,7 +58,7 @@
 - name: Template a file to /etc/file.conf
   ansible.builtin.template:
     src: filebeat.yml.j2
-    dest: /etc/filebeat
+    dest: /etc/filebeat/filebeat.yml
     owner: root
     group: root
     mode: '0700'
