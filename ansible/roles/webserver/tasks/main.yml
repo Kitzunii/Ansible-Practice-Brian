@@ -63,7 +63,7 @@
   become_user: root
 
 - name: Setup Assets
-  command: filebeat setup -e
+  command: filebeat setup
   become: true
   become_user: root
   run_once: true
